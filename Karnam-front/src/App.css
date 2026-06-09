@@ -1,0 +1,109 @@
+.body{
+
+  background-color:white;
+
+}
+
+html,body,#root{
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+}
+
+.box{
+
+  display:flex;
+  flex-direction:column; 
+  height:96%;
+  width:98%;
+  background-color:#1a1a2e;
+  padding:1%;
+
+}
+
+.chat{
+  display:flex;
+  height:300%;
+  width:101%;
+  gap:1%;
+  padding-bottom:1%;
+  background-color:#1a1a2e;
+  flex-direction:column;
+  overflow-y:auto;
+
+}
+
+.chatdiv{
+  display:flex;
+  align-items:flex-end;
+  height:10%;
+  width:100%;
+  background-color:#1a1a2e;
+  border-radius:10vh;
+  border:3px solid white;
+}
+
+.chatarea{
+  height:90%;
+  width:93%;
+  font-size:200%;
+  border-radius:10vh;
+  padding-left:2%;
+  resize:none;
+  overflow:hidden;
+  background-color:#1a1a2e;
+  border:0px #1a1a2e;
+}
+
+.chatarea:focus{
+  outline:none;
+}
+.send{
+  height:100%;
+  width:7%;
+  font-size:150%;
+  border-radius:50vh;
+  background-color:pink;
+  border:1px #1a1a2e;
+  font-size:250%;
+}
+
+.bubble{
+  display:flex;
+  flex-shrink:0;
+  justify-content:flex-start;
+  align-items:center;
+  background-color:#222222;
+  height:10%;
+  width:100%;
+  background-color:#1a1a2e;
+}
+.bub_text{
+
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  background-color:yellow;
+  min-height:100%;
+  max-height:300%;
+  min-width:3%;
+  max-width:70%;
+  border-radius:100vh;
+  padding-left:2%;
+  padding-right:2%;
+  overflow-wrap:break-word;
+  word-break:break-word; 
+
+}
+.bubble1{
+  display:flex;
+  flex-shrink:0;
+  justify-content:flex-start;
+  justify-content:flex-end;
+  align-items:center;
+  background-color:#222222;
+  height:10%;
+  width:100%;
+  background-color:#1a1a2e;
+}
