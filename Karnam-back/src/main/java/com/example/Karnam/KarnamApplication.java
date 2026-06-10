@@ -17,7 +17,6 @@ public class KarnamApplication {
 	}
 
   ChatModel model = OpenAiChatModel.builder()
-    .baseUrl("http://langchain4j.dev/demo/openai/v1")
     .apiKey("demo")
     .modelName("gpt-4o-mini")
     .maxTokens(1000)
