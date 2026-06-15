@@ -1,7 +1,6 @@
 import './App.css'
 import Bubble from './Bubble.jsx'
 import { useState } from 'react'
- 
 
 
 function App() {
@@ -12,7 +11,6 @@ function App() {
   const [url,getUrl]=useState([]);
 
   const gettext=(e)=>{
-    console.log("worked");
     getData(e.target.value)
   };
 
@@ -27,28 +25,48 @@ function App() {
   };
 
 
-  const fet= async ()=>{
 
-    const ai_json= await fetch("https://httpbin.org/post",{
 
+  const stream=async (datas)=>{
+
+    
+    const response= await fetch("https://karnam.tail10621d.ts.net/chat",{
 
       method:"POST",
-      headers:{
 
-        "Content-Type":"text/plain"
-      },
-      body:data
+      headers:{"Content-Type":"application/json"},
+      
+      body:JSON.stringify({usermessage:datas})
     });
+
+    const reader= response.body.getReader();
     
-    if(ai_json.ok){
-    const ai_message = await ai_json.json();
-    addMessag(ai_message.data,false);
-     }
+    const decoder = new TextDecoder();
+    
+     let ai_message="";
+
+    while(true){
+
+      const { value , done }= await reader.read();
+      if(done) break;
+
+
+
+      ai_message+=decoder.decode(value)
+      
+      
+      addMessag(ai_message,false);
+
+
+      console.log(ai_message);
+    
+
+      
+    }
 
   };
   
-  
-  
+
   const [messages ,setMessages]=useState([]);
 
   return (
@@ -63,13 +81,14 @@ function App() {
     ))}
 
     </div>
+
     
     <div className="chatdiv">
     <textarea className="chatarea" onChange={gettext}>
     </textarea>
     <button className="send" onClick={async ()=>{
       addMessag(data,true);
-      await fet();
+      await stream(data);
     }}>⬆</button>
 
     
