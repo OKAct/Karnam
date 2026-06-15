@@ -40,7 +40,7 @@ public class KarnamApplication {
     System.out.println("Connection");
 
   StreamingChatModel model=OpenAiStreamingChatModel.builder() 
-    .baseUrl("https://showers-household-enrolled-epinions.trycloudflare.com/v1")
+    .baseUrl("https://karnam.tail10621d.ts.net/v1")
     .apiKey("ollama")
     .modelName("gemma3:270m")
     .temperature(0.9)
@@ -63,7 +63,6 @@ public class KarnamApplication {
                 emitter.send(chunk);
                 }
                 catch(Exception e){
-
                   emitter.completeWithError(e);
                 }
               }) 
