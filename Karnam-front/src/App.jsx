@@ -9,6 +9,8 @@ function App() {
   const [data,getData]=useState("");
   const [bool,updateBool]=useState([]);
   const [url,getUrl]=useState([]);
+  const [messages ,setMessages]=useState([]);
+  
 
   const gettext=(e)=>{
     getData(e.target.value)
@@ -28,8 +30,6 @@ function App() {
 
 
   const stream=async (datas)=>{
-
-    
     const response= await fetch("https://karnam.tail10621d.ts.net/chat",{
 
       method:"POST",
@@ -45,29 +45,35 @@ function App() {
     
      let ai_message="";
 
+    setMessages(prev=>[
+      ...prev,
+      {message:"",pro:true}
+    ]);
+
     while(true){
 
       const { value , done }= await reader.read();
       if(done) break;
 
 
-
-      ai_message+=decoder.decode(value)
+     ai_message+=decoder.decode(value);
       
-      
-      addMessag(ai_message,false);
 
+
+      setMessages(prev=>
+        prev.map((m,index)=>
+          index===prev.length-1 ?{...m,message:ai_message}:m
+        )
+      );
 
       console.log(ai_message);
-    
 
-      
     }
+
 
   };
   
 
-  const [messages ,setMessages]=useState([]);
 
   return (
     <>
