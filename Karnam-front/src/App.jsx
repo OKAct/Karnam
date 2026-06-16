@@ -45,10 +45,9 @@ function App() {
     
      let ai_message="";
 
-    setMessages(prev=>[
-      ...prev,
-      {message:"",pro:true}
-    ]);
+
+    addMessag(" ",false);
+
 
     while(true){
 
@@ -56,7 +55,7 @@ function App() {
       if(done) break;
 
 
-     ai_message+=decoder.decode(value);
+      ai_message+=decoder.decode(value);
       
 
 
