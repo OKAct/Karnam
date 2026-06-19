@@ -47,7 +47,18 @@ public class KarnamApplication {
   public ResponseBodyEmitter message_chat(@RequestPart("client") clientJson client,@RequestPart(value="img",required = false) MultipartFile img)
   {
 
-   if(img!=null){
+    System.out.println("Check");
+
+    if(img!=null){
+      System.out.println("image got");
+    }
+    else{
+      System.out.println("No image");
+    }
+
+
+
+   if(img!=null && !img.isEmpty()){
 
      OCR imageText= new OCR(img);
 
