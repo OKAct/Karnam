@@ -49,14 +49,14 @@ public class KarnamApplication {
 
     System.out.println("Check");
 
-    if(img!=null){
+    if(img!=null &!img.isEmpty()){
+
       System.out.println("image got");
+      System.out.println(img.getName());
     }
     else{
       System.out.println("No image");
     }
-
-
 
    if(img!=null && !img.isEmpty()){
 
@@ -64,7 +64,7 @@ public class KarnamApplication {
 
      String imgTxt=imageText.getText();
 
-     System.out.println("worked");
+     System.out.println("Text from img:"+imgTxt);
 
      client.usermessage.append(imgTxt);
 
