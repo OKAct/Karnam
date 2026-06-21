@@ -13,7 +13,7 @@ function App() {
   const [messages ,setMessages]=useState([]);
   
 
-  const gettext=(e)=>{
+  const getText=(e)=>{
     getData(e.target.value)
   };
 
@@ -84,7 +84,7 @@ function App() {
     
     <div className="chatdiv">
 
-    <PromptArea GetText={gettext}/>
+    <PromptArea GetText={getText}/>
 
     <SendButton sentMessage={()=>addMessag(data,true)} stream={()=>stream(data)}/>
     </div>
