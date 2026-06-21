@@ -2,7 +2,8 @@ import './App.css'
 import Bubble from './Bubble.jsx'
 import { useState } from 'react'
 import SendButton from './SendButton'
-
+import PromptArea from './PromptArea.jsx'
+import Chat from './Chat.jsx'
 function App() {
 
 
@@ -79,21 +80,13 @@ function App() {
     
     <div className="box">
 
-    <div className="chat">
-    
-    {messages.map((msg,index)=>(
-      <Bubble key={index} message={msg.message} pro={msg.pro}/>
-    ))}
-
-    </div>
-
+    <Chat chatMessages={messages}/>
     
     <div className="chatdiv">
-    <textarea className="chatarea" onChange={gettext}>
-    </textarea>
 
+    <PromptArea GetText={gettext}/>
 
-    <SendButton message={()=>addMessag(data,true)} stream={()=>stream(data)}/>
+    <SendButton sentMessage={()=>addMessag(data,true)} stream={()=>stream(data)}/>
     </div>
 
 
