@@ -1,7 +1,7 @@
 import './App.css'
 import Bubble from './Bubble.jsx'
 import { useState } from 'react'
-
+import SendButton from './SendButton'
 
 function App() {
 
@@ -91,12 +91,9 @@ function App() {
     <div className="chatdiv">
     <textarea className="chatarea" onChange={gettext}>
     </textarea>
-    <button className="send" onClick={async ()=>{
-      addMessag(data,true);
-      await stream(data);
-    }}>⬆</button>
 
-    
+
+    <SendButton message={()=>addMessag(data,true)} stream={()=>stream(data)}/>
     </div>
 
 
