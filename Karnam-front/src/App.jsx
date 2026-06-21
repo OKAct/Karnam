@@ -4,6 +4,7 @@ import { useState } from 'react'
 import SendButton from './SendButton'
 import PromptArea from './PromptArea.jsx'
 import Chat from './Chat.jsx'
+import getText from './handler.jsx'
 function App() {
 
 
@@ -13,9 +14,6 @@ function App() {
   const [messages ,setMessages]=useState([]);
   
 
-  const getText=(e)=>{
-    getData(e.target.value)
-  };
 
   const addMessag=(input_data,mes)=>{
     
@@ -84,7 +82,7 @@ function App() {
     
     <div className="chatdiv">
 
-    <PromptArea GetText={getText}/>
+    <PromptArea GetText={(e)=>{getText(e,getData)}}/>
 
     <SendButton sentMessage={()=>addMessag(data,true)} stream={()=>stream(data)}/>
     </div>
