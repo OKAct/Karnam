@@ -1,11 +1,10 @@
 import './App.css'
-import Bubble from './Bubble.jsx'
+import Bubble from './components/Bubble.jsx'
 import { useState } from 'react'
-import SendButton from './SendButton'
-import PromptArea from './PromptArea.jsx'
-import Chat from './Chat.jsx'
-import getText from './handler.jsx'
-import addMessage from './addMessage.jsx'
+import SendButton from './components/SendButton'
+import PromptArea from './components/PromptArea.jsx'
+import Chat from './components/Chat.jsx'
+import { getText,addMessage } from './components/handler.jsx'
 function App() {
 
 
@@ -77,6 +76,7 @@ function App() {
     <PromptArea GetText={(e)=>{getText(e,getData)}}/>
 
     <SendButton sentMessage={()=>addMessage(data,true,setMessages)} stream={()=>stream(data)}/>
+
     </div>
 
 
