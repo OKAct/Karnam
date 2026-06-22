@@ -4,4 +4,7 @@ const getText=(e,getData)=>{
   getData(e.target.value);
 }
 
+
+
+
 export default getText
