@@ -5,6 +5,7 @@ import SendButton from './SendButton'
 import PromptArea from './PromptArea.jsx'
 import Chat from './Chat.jsx'
 import getText from './handler.jsx'
+import addMessage from './addMessage.jsx'
 function App() {
 
 
@@ -15,15 +16,6 @@ function App() {
   
 
 
-  const addMessag=(input_data,mes)=>{
-    
-    setMessages(messages => [
-      ...messages,
-      { message:input_data,pro:mes ? false:true}
-    ]);
-    
-
-  };
 
 
 
@@ -45,7 +37,7 @@ function App() {
      let ai_message="";
 
 
-    addMessag(" ",false);
+    addMessage(" ",false,setMessages);
 
 
     while(true){
@@ -79,12 +71,12 @@ function App() {
     <div className="box">
 
     <Chat chatMessages={messages}/>
-    
+  
     <div className="chatdiv">
 
     <PromptArea GetText={(e)=>{getText(e,getData)}}/>
 
-    <SendButton sentMessage={()=>addMessag(data,true)} stream={()=>stream(data)}/>
+    <SendButton sentMessage={()=>addMessage(data,true,setMessages)} stream={()=>stream(data)}/>
     </div>
 
 
