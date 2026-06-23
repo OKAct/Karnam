@@ -4,7 +4,7 @@ import { useState } from 'react'
 import SendButton from './components/SendButton'
 import  PromptArea  from './components/PromptArea.jsx'
 import Chat from './components/Chat.jsx'
-import { getText,addMessage } from './components/handler.jsx'
+import { getText,addMessage,getFile,returnFile } from './components/handler.jsx'
 import FileUpload from './components/FileUpload'
 function App() {
 
@@ -16,12 +16,16 @@ function App() {
   
 
 
+  const formData = new FormData();
 
 
 
 
   const stream=async (datas)=>{
     
+    const userString =JSON.stringify({usermessage:datas})
+
+    formData.append("client",userString);
 
     const response= await fetch("https://karnam.tail10621d.ts.net/chat",{
 
@@ -29,7 +33,7 @@ function App() {
 
       headers:{"Content-Type":"application/json"},
       
-      body:JSON.stringify({usermessage:datas})
+      body:formData
     });
 
     const reader= response.body.getReader();
@@ -78,7 +82,7 @@ function App() {
 
 
 
-    <PromptArea GetText={(e)=>{getText(e,getData)}}/>
+    <PromptArea GetText={(e)=>{getText(e,getData)}} onDragOver={(e)=>{getFile(e)}} onDrop={(e)=>{returnFile(e,formData)}}/>
 
     <FileUpload />
 

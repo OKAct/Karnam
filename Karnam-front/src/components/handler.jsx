@@ -12,4 +12,17 @@
     ]);
   };
 
+  
+export const getFile=(e)=>{
+  e.preventDefault();
+}
+
+export const returnFile=(e,formData)=>{
+
+  e.preventDefault();
+  const file= e.dataTransfer.files;
+
+  formData.append("img",file);
+}
+
 

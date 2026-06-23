@@ -1,20 +1,9 @@
 
 
-const getFile=(e)=>{
-  e.preventDefault();
-};
-
-
-const returnFile=(e)=>{
-  e.preventDefault();
- 
-  const files=e.dataTransfer.files;
-};
-
-const PromptArea=({GetText})=>{
+const PromptArea=({GetText,onDragOver,onDrop})=>{
 
   return(
-    <textarea className="chatarea" onDragOver={getFile} onDrop={returnFile} placeholder="Ask anything" onChange={GetText}></textarea>
+    <textarea className="chatarea" onDragOver={onDragOver} onDrop={onDrop} placeholder="Ask anything" onChange={GetText}></textarea>
   );
 };
 
