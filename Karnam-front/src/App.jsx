@@ -13,11 +13,11 @@ function App() {
   const [bool,updateBool]=useState([]);
   const [url,getUrl]=useState([]);
   const [messages ,setMessages]=useState([]);
+  const [bl,updatebl]=useState(true);
   
 
 
   const formData = new FormData();
-
 
 
 
@@ -80,13 +80,14 @@ function App() {
   
     <div className="chatdiv">
 
-
-
-    <PromptArea GetText={(e)=>{getText(e,getData)}} onDragOver={(e)=>{getFile(e)}} onDrop={(e)=>{returnFile(e,formData)}}/>
-
-    <FileUpload />
+    <PromptArea GetText={(e)=>{getText(e,getData);}} onDragOver={(e)=>{getFile(e);updatebl(false);}} onDrop={(e)=>{returnFile(e,formData);updatebl(true)}} onDragLeave={(e)=>{updatebl(true)}} me={bl}/>
 
     <SendButton sentMessage={()=>addMessage(data,true,setMessages)} stream={()=>stream(data)}/>
+
+
+
+    <FileUpload/>
+
 
     </div>
 

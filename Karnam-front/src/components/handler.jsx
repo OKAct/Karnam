@@ -20,6 +20,7 @@ export const getFile=(e)=>{
 export const returnFile=(e,formData)=>{
 
   e.preventDefault();
+  console.log("hello");
   const file= e.dataTransfer.files;
 
   formData.append("img",file);

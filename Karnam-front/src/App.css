@@ -46,9 +46,9 @@ html,body,#root{
 
 .chatarea{
   position:relative;
-  left:5%;
+  left:7%;
   height:70%;
-  width:95%;
+  width:85%;
   font-size:150%;
   padding-top:1.5%;
   border-radius:10vh;
@@ -62,13 +62,32 @@ html,body,#root{
   outline:none;
 }
 
+.chatarea_on_upload{
+
+  display:flex;
+  align-items:center;
+  bottom:1%;
+  right:0.3%;
+  justify-content:center;
+  position:fixed;
+  height:30%;
+  width:96%;
+  font-size:150%;
+  padding-top:1.5%;
+  border-radius:4vh;
+  padding-left:3%;
+  background-color: rgba(26,115,232,1);
+  
+}
 
 .send{
+  position:relative;
+  left:7%;
   height:100%;
   width:7%;
   font-size:150%;
   border-radius:50vh;
-  background-color:#C0C0C0;
+  background-color: rgba(26,115,232,0.95);
   border:1px #1a1a2e;
   font-size:250%;
 }
@@ -120,11 +139,11 @@ html,body,#root{
 .file_input{
   
   position:relative;
-  right:87.4%; 
+  right:93%; 
   height:100%;
   width:7%;
   border-radius:100vh;
-  background-color:#1a1a2e;
+  background-color: rgba(26,115,232,0.95);
   font-size:150%;
   border:0;
 }
