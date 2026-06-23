@@ -2,9 +2,10 @@ import './App.css'
 import Bubble from './components/Bubble.jsx'
 import { useState } from 'react'
 import SendButton from './components/SendButton'
-import PromptArea from './components/PromptArea.jsx'
+import  PromptArea  from './components/PromptArea.jsx'
 import Chat from './components/Chat.jsx'
 import { getText,addMessage } from './components/handler.jsx'
+import FileUpload from './components/FileUpload'
 function App() {
 
 
@@ -20,6 +21,8 @@ function App() {
 
 
   const stream=async (datas)=>{
+    
+
     const response= await fetch("https://karnam.tail10621d.ts.net/chat",{
 
       method:"POST",
@@ -73,7 +76,11 @@ function App() {
   
     <div className="chatdiv">
 
+
+
     <PromptArea GetText={(e)=>{getText(e,getData)}}/>
+
+    <FileUpload />
 
     <SendButton sentMessage={()=>addMessage(data,true,setMessages)} stream={()=>stream(data)}/>
 
@@ -88,3 +95,4 @@ function App() {
 }
 
 export default App
+

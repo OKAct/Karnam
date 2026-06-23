@@ -45,28 +45,37 @@ html,body,#root{
 }
 
 .chatarea{
-  height:90%;
-  width:93%;
-  font-size:200%;
+  position:relative;
+  left:5%;
+  height:70%;
+  width:95%;
+  font-size:150%;
+  padding-top:1.5%;
   border-radius:10vh;
-  padding-left:2%;
+  padding-left:3%;
   resize:none;
-  overflow:hidden;
   background-color:#1a1a2e;
-  border:0px #1a1a2e;
+  border:0;
 }
 
 .chatarea:focus{
   outline:none;
 }
+
+
 .send{
   height:100%;
   width:7%;
   font-size:150%;
   border-radius:50vh;
-  background-color:pink;
+  background-color:#C0C0C0;
   border:1px #1a1a2e;
   font-size:250%;
+}
+
+.send:hover{
+  cursor:pointer;
+  background-color:#808080;
 }
 
 .bubble{
@@ -107,3 +116,27 @@ html,body,#root{
   width:100%;
   background-color:#1a1a2e;
 }
+
+.file_input{
+  
+  position:relative;
+  right:87.4%; 
+  height:100%;
+  width:7%;
+  border-radius:100vh;
+  background-color:#1a1a2e;
+  font-size:150%;
+  border:0;
+}
+
+.file_input:hover{
+  cursor:pointer; 
+  background-color:#808080;
+
+}
+
+
+
+
+
+
