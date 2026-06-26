@@ -21,9 +21,12 @@ export const returnFile=(e,formData)=>{
 
   e.preventDefault();
   console.log("hello");
-  const file= e.dataTransfer.files;
+  const file= e.dataTransfer.files[0];
+  
+  console.log("not work"+file);
 
-  formData.append("img",file);
+  formData.current.append("img",file);
+  console.log(formData);
 }
 
 

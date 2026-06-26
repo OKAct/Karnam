@@ -1,6 +1,5 @@
 package com.example.Karnam;
 
-import dev.langchain4j.data.image.Image;
 import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.memory.chat.TokenWindowChatMemory;
 import dev.langchain4j.model.chat.StreamingChatModel;
@@ -9,7 +8,7 @@ import dev.langchain4j.model.openai.OpenAiTokenCountEstimator;
 import dev.langchain4j.service.AiServices;
 
 
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
@@ -25,8 +24,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 
 
 
-
-
+@CrossOrigin("*")
 @SpringBootApplication
 @RestController
 public class KarnamApplication {
@@ -44,12 +42,12 @@ public class KarnamApplication {
 
 
   @PostMapping("/chat")
-  public ResponseBodyEmitter message_chat(@RequestPart("client") clientJson client,@RequestPart(value="img",required = false) MultipartFile img)
+  public ResponseBodyEmitter message_chat(@RequestPart(value="client" ,required = false) clientJson client,@RequestPart(value="img",required = false) MultipartFile img)
   {
 
     System.out.println("Check");
 
-    if(img!=null &!img.isEmpty()){
+    if(img!=null && !img.isEmpty()){
 
       System.out.println("image got");
       System.out.println(img.getName());

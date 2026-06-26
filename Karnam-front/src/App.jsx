@@ -6,6 +6,9 @@ import  PromptArea  from './components/PromptArea.jsx'
 import Chat from './components/Chat.jsx'
 import { getText,addMessage,getFile,returnFile } from './components/handler.jsx'
 import FileUpload from './components/FileUpload'
+import { useRef } from 'react'
+
+
 function App() {
 
 
@@ -17,23 +20,25 @@ function App() {
   
 
 
-  const formData = new FormData();
-
+  const formData = useRef(new FormData());
 
 
   const stream=async (datas)=>{
     
     const userString =JSON.stringify({usermessage:datas})
 
-    formData.append("client",userString);
+    formData.current.append("client",
 
-    const response= await fetch("https://karnam.tail10621d.ts.net/chat",{
+      new Blob([userString], {type:"application/json"})
+
+      );
+    console.log(formData);
+
+    const response= await fetch("https://mypc.tail10621d.ts.net/chat",{
 
       method:"POST",
 
-      headers:{"Content-Type":"application/json"},
-      
-      body:formData
+      body:formData.current
     });
 
     const reader= response.body.getReader();
@@ -83,9 +88,6 @@ function App() {
     <PromptArea GetText={(e)=>{getText(e,getData);}} onDragOver={(e)=>{getFile(e);updatebl(false);}} onDrop={(e)=>{returnFile(e,formData);updatebl(true)}} onDragLeave={(e)=>{updatebl(true)}} me={bl}/>
 
     <SendButton sentMessage={()=>addMessage(data,true,setMessages)} stream={()=>stream(data)}/>
-
-
-
     <FileUpload/>
 
 

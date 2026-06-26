@@ -2,10 +2,6 @@
 
 const PromptArea=({GetText,onDragOver,onDrop,me,onDragLeave})=>{
 
-  const donot=(e)=>{
-
-    e.preventDefault();
-  }
 
   return(
 
