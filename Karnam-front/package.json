@@ -13,7 +13,8 @@
     "@ai-sdk/react": "^3.0.207",
     "ai": "^6.0.205",
     "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react-dom": "^19.2.6",
+    "react-markdown": "^10.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

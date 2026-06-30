@@ -110,19 +110,13 @@ html,body,#root{
 }
 .bub_text{
 
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
   min-height:100%;
   max-height:300%;
   min-width:3%;
-  max-width:70%;
+  max-width:100%;
   border-radius:100vh;
   padding-left:2%;
   padding-right:2%;
-  overflow-wrap:break-word;
-  word-break:break-word; 
-
 }
 .bubble1{
   display:flex;

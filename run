@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+ cd Karnam-front/
+
+ npm run dev  -- --open &
+ 
+ 
+cd ../Karnam-back
+
+port=$((1000 + RANDOM % 9000))
+
+./gradlew bootRun --args="--server.port=$port"  &
+
+
+sudo tailscale funnel reset 
+
+sudo tailscale funnel $port
+

@@ -9,6 +9,7 @@ import dev.langchain4j.service.AiServices;
 
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.TokenStream;
@@ -34,12 +35,18 @@ public class KarnamApplication {
 	}
 
   interface Assistant{
-    @SystemMessage("You are a bad java teacher and  like to give funny , sarcastic  but wrong  answers when somebody ask you any question about java")
+    @SystemMessage("You are very helpful ai assistant made by Anand Yasheswi and make sure to tell everybody you were made by anand")
     TokenStream chat(String message);
     
   } 
 
 
+  @GetMapping("/test")
+  public String test(){
+
+    return "Server working";
+  }
+  
 
   @PostMapping("/chat")
   public ResponseBodyEmitter message_chat(@RequestPart(value="client" ,required = false) clientJson client,@RequestPart(value="img",required = false) MultipartFile img)
