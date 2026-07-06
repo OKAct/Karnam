@@ -1,5 +1,5 @@
 
-  export const getText=(e,getData)=>{
+ export const getText=(e,getData)=>{
   getData(e.target.value);
 }
 
@@ -29,4 +29,10 @@ export const returnFile=(e,formData)=>{
   console.log(formData);
 }
 
+export const enterKey=(e)=>{
 
+  if(e.key=="Enter"){
+
+    console.log("hello");
+  }
+}

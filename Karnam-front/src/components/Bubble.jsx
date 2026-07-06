@@ -14,7 +14,7 @@ const Bubble=(props)=>{
     </div>
     :
     <div className="bubble1">
-    <span className="bub_text">
+    <span className="bub_text1">
     <Markdown >{props.message}</Markdown>
     </span>
     </div>

@@ -1,7 +1,7 @@
 import Bubble from './Bubble.jsx'
 
 
-const Chat=({chatMessages})=>{
+const Chat=({chatMessages,scrollRef})=>{
 
   return (
     <div className="chat">
@@ -12,6 +12,7 @@ const Chat=({chatMessages})=>{
 
     ))}
 
+    <div ref={scrollRef}></div>
     </div>
   );
 }

@@ -1,12 +1,12 @@
 
 
-const PromptArea=({GetText,onDragOver,onDrop,me,onDragLeave})=>{
+const PromptArea=({GetText,onDragOver,onDrop,onUpload,onDragLeave,ref,onKeyPress})=>{
 
 
   return(
 
-    me?(
-    <textarea className="chatarea" onDragOver={onDragOver} onDrop={onDrop} onDragLeave={onDragLeave} placeholder="Ask anything" onChange={GetText} ></textarea>
+    onUpload?(
+    <textarea className="chatarea" onDragOver={onDragOver} onDrop={onDrop} onDragLeave={onDragLeave} placeholder="Ask anything" onChange={GetText} ref={ref} onKeyPress={onKeyPress}></textarea>
     )
     :
     <>

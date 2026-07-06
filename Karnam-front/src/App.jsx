@@ -1,12 +1,12 @@
 import './App.css'
 import Bubble from './components/Bubble.jsx'
-import { useState } from 'react'
+import { useState,useRef,useEffect } from 'react'
 import SendButton from './components/SendButton'
-import  PromptArea  from './components/PromptArea.jsx'
+import PromptArea  from './components/PromptArea.jsx'
 import Chat from './components/Chat.jsx'
-import { getText,addMessage,getFile,returnFile } from './components/handler.jsx'
+import { getText,addMessage,getFile,returnFile,enterKey } from './components/handler.jsx'
 import FileUpload from './components/FileUpload'
-import { useRef } from 'react'
+
 
 
 function App() {
@@ -16,12 +16,18 @@ function App() {
   const [bool,updateBool]=useState([]);
   const [url,getUrl]=useState([]);
   const [messages ,setMessages]=useState([]);
-  const [bl,updatebl]=useState(true);
+  const [picUpload,updatePic]=useState(true);
   
 
 
   const formData = useRef(new FormData());
+  const scroll  =useRef(null);
+  const textArea= useRef(null);
+  const refSendButton=useRef(null); 
 
+  useEffect(()=>{
+   scroll.current.scrollIntoView({behavior:"smooth"}); 
+  },[messages]);
 
   const stream=async (datas)=>{
     
@@ -84,13 +90,28 @@ function App() {
     
     <div className="box">
 
-    <Chat chatMessages={messages}/>
+    <Chat chatMessages={messages} scrollRef={scroll}/>
   
     <div className="chatdiv">
 
-    <PromptArea GetText={(e)=>{getText(e,getData);}} onDragOver={(e)=>{getFile(e);updatebl(false);}} onDrop={(e)=>{returnFile(e,formData);updatebl(true)}} onDragLeave={(e)=>{updatebl(true)}} me={bl}/>
+    <PromptArea GetText={(e)=>{getText(e,getData);}} onDragOver={(e)=>{getFile(e);updatePic(false);}} onDrop={(e)=>{returnFile(e,formData);updatePic(true)}} onDragLeave={(e)=>{updatePic(true)}} onUpload={picUpload} ref={textArea} 
 
-    <SendButton sentMessage={()=>addMessage(data,true,setMessages)} stream={()=>stream(data)}/>
+
+    onKeyPress={(e)=>{
+      if(e.key==="Enter"){
+        refSendButton.current.click();
+      }
+
+    }}
+
+    />
+
+    <SendButton sentMessage={()=>{
+      addMessage(data,true,setMessages)
+        textArea.current.value="";
+    }} stream={()=>stream(data)} ref={refSendButton}/>
+
+
     <FileUpload/>
 
 

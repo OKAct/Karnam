@@ -1,12 +1,12 @@
 
-const SendButton=({sentMessage,stream})=>{
+const SendButton=({sentMessage,stream,ref})=>{
 
   return(
 
     <button className="send" onClick={async()=>{
       sentMessage();
       await stream(); 
-    }}>⬆</button>
+    }} ref={ref}>⬆</button>
   );
 }
 

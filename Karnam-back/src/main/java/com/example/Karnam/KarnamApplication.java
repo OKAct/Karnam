@@ -40,6 +40,8 @@ public class KarnamApplication {
     
   } 
 
+  
+  
 
   @GetMapping("/test")
   public String test(){
@@ -47,7 +49,6 @@ public class KarnamApplication {
     return "Server working";
   }
   
-
   @PostMapping("/chat")
   public ResponseBodyEmitter message_chat(@RequestPart(value="client" ,required = false) clientJson client,@RequestPart(value="img",required = false) MultipartFile img)
   {
@@ -85,13 +86,13 @@ public class KarnamApplication {
 
 
     ChatMemory memory=TokenWindowChatMemory.withMaxTokens(8000, new OpenAiTokenCountEstimator(GPT_4_O_MINI));
-                                         
 
     Assistant assistant= AiServices.builder(Assistant.class)
       .streamingChatModel(model)
       .chatMemory(memory)
       .build();
-
+ 
+    
 
     ResponseBodyEmitter emitter = new ResponseBodyEmitter();
 
@@ -111,8 +112,12 @@ public class KarnamApplication {
   }
 
 
-  
+
+
+
 }
+
+
 
 
 
