@@ -18,6 +18,7 @@ import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_4_O_MINI;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -77,15 +78,15 @@ public class KarnamApplication {
    } 
 
   StreamingChatModel model=OpenAiStreamingChatModel.builder() 
-    .baseUrl("https://karnam.tail10621d.ts.net/v1")
-    .apiKey("ollama")
-    .modelName("gemma3:270m")
-    .temperature(0.9)
+    .baseUrl(client.usersetting.localAiBaseUrl)
+    .apiKey(client.usersetting.apiKey)
+    .modelName(client.usersetting.aiModel)
+    .temperature(Double.parseDouble(client.usersetting.temperature))
     .build();
 
 
 
-    ChatMemory memory=TokenWindowChatMemory.withMaxTokens(8000, new OpenAiTokenCountEstimator(GPT_4_O_MINI));
+   ChatMemory memory=TokenWindowChatMemory.withMaxTokens(8000, new OpenAiTokenCountEstimator(GPT_4_O_MINI));
 
     Assistant assistant= AiServices.builder(Assistant.class)
       .streamingChatModel(model)

@@ -18,7 +18,13 @@ function App() {
   const [messages ,setMessages]=useState([]);
   const [picUpload,updatePic]=useState(true);
   
+  const [usersetting,setUserSetting]=useState({
 
+    localAiBaseUrl:"https://karnam.tail10621d.ts.net/v1",
+    apiKey:"ollama",
+    aiModel:"gemma3:270m",
+    temperature:"0.9"
+  });
 
   const formData = useRef(new FormData());
   const scroll  =useRef(null);
@@ -31,7 +37,9 @@ function App() {
 
   const stream=async (datas)=>{
     
-    const userString =JSON.stringify({usermessage:datas})
+    const userString =JSON.stringify({usermessage:datas,usersetting})
+
+    console.log(userString);
 
     formData.current.append("client",
 
