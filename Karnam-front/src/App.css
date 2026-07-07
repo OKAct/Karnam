@@ -172,8 +172,55 @@ html,body,#root{
 
 }
 
+.setting_button{
+  position:absolute;
+  height:7%;
+  width:5%;
+  border-radius:100vh;
+}
 
 
+.settingMenu{
+  position:absolute;
+  justify-content:center;
+  align-items:center;
+  position:absolute;
+  left:25%;
+  top:4%;
+  height:70%; 
+  width:50%;
+  background-color:#24243e;
+  border:6px solid white;
+  
+}
 
-
-
+.setting{
+  display:flex;
+  align-items:center;
+  height:80%;
+  width:100%;
+  flex-direction:column;
+}
+.setting_upward{
+  display:flex ;
+  align-items:center;
+  justify-content:center;
+  font-size:130%;
+  height:20%;
+  background-color:purple;
+  border-bottom:4px solid white;
+}
+.settingElement{
+  display:flex ;
+  align-items:center;
+  justify-content:center;
+  height:12%;
+  width: 100%;
+}
+.settingInput{
+  display:flex ;
+  align-items:center;
+  justify-content:center;
+  height:7%;
+  width:80%;
+}

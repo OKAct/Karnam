@@ -36,9 +36,8 @@ public class KarnamApplication {
 	}
 
   interface Assistant{
-    @SystemMessage("You are very helpful ai assistant made by Anand Yasheswi and make sure to tell everybody you were made by anand")
+    @SystemMessage("Be a useful assistant")
     TokenStream chat(String message);
-    
   } 
 
   
