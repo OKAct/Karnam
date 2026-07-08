@@ -84,6 +84,7 @@ public class KarnamApplication {
     .build();
 
 
+  System.out.println(client.usersetting.aiModel);
 
    ChatMemory memory=TokenWindowChatMemory.withMaxTokens(8000, new OpenAiTokenCountEstimator(GPT_4_O_MINI));
 

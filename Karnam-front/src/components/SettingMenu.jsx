@@ -1,5 +1,5 @@
 
-const SettingMenu=({hidden})=>{
+const SettingMenu=({hidden,settingSetter})=>{
   return(
     <div className="settingMenu" hidden={hidden}>
     
@@ -7,16 +7,48 @@ const SettingMenu=({hidden})=>{
     <div className="setting">
 
     <div className="settingElement" >Base URL</div>
-    <input className="settingInput"/>
+    <input className="settingInput"  onChange={(e)=>{
+
+      settingSetter(prev=>({
+        ...prev,
+        localAiBaseUrl:e.target.value
+      }));
+      console.log(e.target.value);
+    }} />
 
     <div className="settingElement" >API KEY</div>
-    <input className="settingInput" defaultValue="ollama"/>
+    <input className="settingInput" defaultValue="ollama" 
+      onChange={(e)=>{
+
+      settingSetter(prev=>({
+        ...prev,
+        apiKey:e.target.value
+      }))
+      console.log(e.target.value);
+        
+      }}
+      />
 
     <div className="settingElement" >AI Model</div>
-    <input className="settingInput"/>
+    <input className="settingInput" 
+      onChange={(e)=>{
+
+      settingSetter(prev=>({
+        ...prev,
+        aiModel:e.target.value
+      }))
+      console.log(e.target.value);
+        }}  />
 
     <div className="settingElement">Temprature</div>
-    <input className="settingInput" defaultValue="0.9" />
+    <input className="settingInput" defaultValue="0.9"
+      onChange={(e)=>{
+      settingSetter(prev=>({
+        ...prev,
+        temprature:e.target.value
+      }));
+      console.log(e.target.value);
+      }} />
 
     </div>
     </div>

@@ -101,7 +101,7 @@ function App() {
   
     <SettingButton onClick={()=>{setVisibility(!configVisibility);}}></SettingButton>
 
-    <SettingMenu hidden={configVisibility}></SettingMenu>
+    <SettingMenu hidden={configVisibility} settingSetter={setUserSetting} ></SettingMenu>
 
     <div className="chatdiv">
 
