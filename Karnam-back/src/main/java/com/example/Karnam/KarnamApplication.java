@@ -107,6 +107,14 @@ public class KarnamApplication {
                   emitter.completeWithError(e);
                 }
               }) 
+              .onCompleteResponse(response ->{
+                try{
+                  emitter.complete();
+                }
+                catch(Exception e){
+                  emitter.completeWithError(e);
+                }
+              })
               .onError(error->emitter.completeWithError(error))
               .start();
     return emitter;
