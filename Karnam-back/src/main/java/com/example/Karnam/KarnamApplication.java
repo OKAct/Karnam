@@ -40,19 +40,20 @@ public class KarnamApplication {
     TokenStream chat(String message);
   } 
 
-  
-  
-
   @GetMapping("/test")
   public String test(){
 
     return "Server working";
   }
+
   
+  
+
   @PostMapping("/chat")
   public ResponseBodyEmitter message_chat(@RequestPart(value="client" ,required = false) clientJson client,@RequestPart(value="img",required = false) MultipartFile img)
   {
 
+    
     System.out.println("Check");
 
     if(img!=null && !img.isEmpty()){
@@ -74,7 +75,10 @@ public class KarnamApplication {
 
      client.usermessage.append(imgTxt);
 
+     
+     
    } 
+
 
   StreamingChatModel model=OpenAiStreamingChatModel.builder() 
     .baseUrl(client.usersetting.localAiBaseUrl)
@@ -118,13 +122,12 @@ public class KarnamApplication {
               .onError(error->emitter.completeWithError(error))
               .start();
     return emitter;
+    
   }
 
-
-
-
-
 }
+
+
 
 
 

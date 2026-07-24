@@ -1,0 +1,42 @@
+
+
+.box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100%;
+  width:100%;
+}
+
+.loginBox{
+  height:45%;
+  width:50%;
+  border:2px solid white;
+  background-color:#2a001e;
+}
+
+.loginAttributes{
+  display:grid;
+  grid-template-rows:1fr 1fr 1fr 1fr;
+  height:75%;
+  width:100%;
+}
+.input{
+  position:relative;
+  left:15.5%;
+  width:70%;
+  height:70%;
+  font-size:110%;
+}
+
+.loginButton{
+  margin:2%;
+  height:17%;
+  width:20%;
+}
+.attribute{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  font-size:110%;
+}
